@@ -1,9 +1,13 @@
 package GUI;
 
+import database.DatabaseConnection;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+
+import static database.DatabaseConnection.authenticate;
 
 public class LoginForm extends JFrame {
     private JTextField usernameField;
@@ -45,13 +49,17 @@ public class LoginForm extends JFrame {
                 char[] passwordChars = passwordField.getPassword();
                 String password = new String(passwordChars);
 
-                // Aici poți adăuga logica de verificare a numelui de utilizator și parolei
-                // Într-un scenariu real, ar trebui să te conectezi la o bază de date sau să folosești un serviciu de autentificare
-
-                // Exemplu simplu de redirecționare către Meniu Principal
-                dispose(); // închide fereastra de logare
-                MeniuPrincipalPage meniuPrincipalPage = new MeniuPrincipalPage();
-                meniuPrincipalPage.setVisible(true);
+                // Adaugă logica de verificare a numelui de utilizator și parolei în baza de date
+                if (DatabaseConnection.authenticate(username, password)) {
+                    // Autentificare reușită
+                    dispose(); // închide fereastra de logare
+                    MeniuPrincipalPage meniuPrincipalPage = new MeniuPrincipalPage();
+                    meniuPrincipalPage.setVisible(true);
+                } else {
+                    // Autentificare eșuată
+                    JOptionPane.showMessageDialog(LoginForm.this, "Autentificare eșuată. Verificați utilizatorul și parola.",
+                            "Eroare de autentificare", JOptionPane.ERROR_MESSAGE);
+                }
             }
         });
 
