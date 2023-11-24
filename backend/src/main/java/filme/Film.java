@@ -12,8 +12,9 @@ public class Film implements InterfataFilm {
     String gen;
     String parentalGuidance;
     String salaRulare;
+    byte[] poster;
 
-    public Film(String nume, int durata, String descriere, LocalDate dataLansare, float pret, String regizor, String gen, String parentalGuidance, String salaRulare) {
+    public Film(String nume, int durata, String descriere, LocalDate dataLansare, float pret, String regizor, String gen, String parentalGuidance, String salaRulare, byte[] poster) {
         this.nume = nume;
         this.durata = durata;
         this.descriere = descriere;
@@ -23,7 +24,11 @@ public class Film implements InterfataFilm {
         this.gen = gen;
         this.parentalGuidance = parentalGuidance;
         this.salaRulare = salaRulare;
+        this.poster = poster;
     }
+
+    public Film()
+    {}
 
     public String getNume() {
         return nume;
@@ -95,5 +100,12 @@ public class Film implements InterfataFilm {
 
     public void setSalaRulare(String salaRulare) {
         this.salaRulare = salaRulare;
+    }
+
+    public void setPoster(byte[] poster) {
+        this.poster = poster;
+    }
+    public byte[] getPoster() {
+        return poster;
     }
 }
