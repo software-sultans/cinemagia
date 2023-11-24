@@ -6,8 +6,8 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.sql.*;
 
-import static database.DatabaseConnection.authenticate;
 
 public class LoginForm extends JFrame {
     private JTextField usernameField;
@@ -50,7 +50,7 @@ public class LoginForm extends JFrame {
                 String password = new String(passwordChars);
 
                 // Adaugă logica de verificare a numelui de utilizator și parolei în baza de date
-                if (DatabaseConnection.authenticate(username, password)) {
+                if (authenticate(username, password)) {
                     // Autentificare reușită
                     dispose(); // închide fereastra de logare
                     MeniuPrincipalPage meniuPrincipalPage = new MeniuPrincipalPage();
@@ -74,5 +74,24 @@ public class LoginForm extends JFrame {
 
         // Face fereastra non-scalabilă
         setResizable(false);
+    }
+    public static boolean authenticate(String username, String password) {
+
+        try (Connection connection = DatabaseConnection.getConnection()) {
+            // Verifică autentificarea utilizatorului
+            String query = "SELECT * FROM angajati WHERE username = ? AND password = ?";
+            try (PreparedStatement preparedStatement = connection.prepareStatement(query)) {
+                preparedStatement.setString(1, username);
+                preparedStatement.setString(2, password);
+
+                try (ResultSet resultSet = preparedStatement.executeQuery()) {
+                    return resultSet.next(); // Returnează true dacă există un rând în rezultat (autentificare reușită)
+                }
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return false; // Autentificare eșuată în caz de excepție SQL
+        }
+
     }
 }

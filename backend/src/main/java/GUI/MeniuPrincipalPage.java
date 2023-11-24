@@ -1,4 +1,6 @@
 package GUI;
+import filme.StocareFilme;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -30,8 +32,18 @@ class MeniuPrincipalPage extends JFrame {
         add(filmeButton);
         add(logoutButton);
 
+        filmeButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                // Deschide fereastra cu lista de filme
+                ListaFilmePage listaFilmePage = new ListaFilmePage(new StocareFilme()); // poți să îți creezi un FilmRepository personalizat aici
+                listaFilmePage.setVisible(true);
+            }
+        });
+
+
         // Setează dimensiunile fixe ale ferestrei
-        setSize(200, 220);
+        setSize(400, 400);
 
         // Centralizează fereastra pe ecran
         setLocationRelativeTo(null);

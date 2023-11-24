@@ -6,6 +6,8 @@ import java.awt.event.ActionListener;
 
 class gui {
     public static void main(String[] args) {
+
+
         // Rulează aplicația
         SwingUtilities.invokeLater(new Runnable() {
             @Override
