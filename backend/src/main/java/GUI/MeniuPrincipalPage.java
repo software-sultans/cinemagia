@@ -1,5 +1,6 @@
 package GUI;
 import filme.StocareFilme;
+import produse.PaginaStoc;
 
 import javax.swing.*;
 import java.awt.*;
@@ -41,6 +42,14 @@ class MeniuPrincipalPage extends JFrame {
             }
         });
 
+        stocButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                // Deschide fereastra de stoc
+                PaginaStoc paginaStoc = new PaginaStoc();
+                paginaStoc.afiseazaPaginaStoc();
+            }
+        });
 
         // Setează dimensiunile fixe ale ferestrei
         setSize(400, 400);
