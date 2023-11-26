@@ -1,9 +1,13 @@
 package produse;
 
+import GUI.MeniuPrincipalPage;
 import database.DatabaseConnection;
 
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
+import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.Statement;
@@ -41,6 +45,39 @@ public class PaginaStoc {
 
         JScrollPane scrollPane = new JScrollPane(table);
         frame.add(scrollPane);
+
+
+        //butonul "Inapoi" spre meniul principal
+        JButton inapoiButton = new JButton("Înapoi");
+        inapoiButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                frame.dispose(); // Închide fereastra PaginaStoc
+                MeniuPrincipalPage meniuPrincipalPage = new MeniuPrincipalPage(); // Creează un nou meniu principal
+                meniuPrincipalPage.setVisible(true); // Afișează meniul principal
+            }
+        });
+        // Setează layout-ul pentru a controla dimensiunea și poziția butonului
+        JPanel buttonPanel = new JPanel(new FlowLayout(FlowLayout.LEFT));
+        buttonPanel.add(inapoiButton);
+        // Adaugă butonul în zona nordica ferestrei
+        frame.add(buttonPanel, BorderLayout.NORTH);
+
+
+        // Butonul "Modificare Stoc"
+        JButton modificareStocButton = new JButton("Modificare Stoc");
+        modificareStocButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                // Deschide fereastra pentru modificarea stocului
+                ModificareStocPage modificareStocPage = new ModificareStocPage();
+                modificareStocPage.afiseazaInterfataModificareStoc();
+            }
+        });
+
+        // Adaugă butonul "Modificare Stoc" în zona de sus a ferestrei
+        buttonPanel.add(modificareStocButton);
+        frame.add(buttonPanel, BorderLayout.NORTH);
     }
 
     // Metodă pentru a obține lista de produse din baza de date

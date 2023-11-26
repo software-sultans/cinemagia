@@ -6,7 +6,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-class MeniuPrincipalPage extends JFrame {
+public class MeniuPrincipalPage extends JFrame {
 
     public MeniuPrincipalPage() {
         // Setează titlul ferestrei
@@ -50,6 +50,8 @@ class MeniuPrincipalPage extends JFrame {
                 paginaStoc.afiseazaPaginaStoc();
             }
         });
+
+
 
         // Setează dimensiunile fixe ale ferestrei
         setSize(400, 400);
