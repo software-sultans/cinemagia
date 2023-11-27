@@ -1,5 +1,6 @@
 package produse;
 
+import GUI.PaginaStoc;
 import database.DatabaseConnection;
 
 import javax.swing.*;
@@ -7,10 +8,6 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-import javax.swing.*;
-import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.sql.Connection;
 import java.sql.Statement;
 

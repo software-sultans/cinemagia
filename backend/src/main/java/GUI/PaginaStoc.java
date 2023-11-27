@@ -1,7 +1,9 @@
-package produse;
+package GUI;
 
 import GUI.MeniuPrincipalPage;
 import database.DatabaseConnection;
+import produse.ModificareStocPage;
+import produse.Produs;
 
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;

@@ -1,5 +1,6 @@
 package produse;
 
+import GUI.PaginaStoc;
 import database.DatabaseConnection;
 
 import javax.swing.*;

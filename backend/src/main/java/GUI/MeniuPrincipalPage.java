@@ -1,12 +1,10 @@
 package GUI;
 import filme.StocareFilme;
-import produse.PaginaStoc;
 
 import javax.swing.*;
-import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-public class MeniuPrincipalPage extends JFrame {
+class MeniuPrincipalPage extends JFrame {
 
     public MeniuPrincipalPage() {
         // Setează titlul ferestrei
