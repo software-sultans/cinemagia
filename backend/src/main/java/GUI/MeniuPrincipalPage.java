@@ -35,7 +35,7 @@ class MeniuPrincipalPage extends JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
                 // Deschide fereastra cu lista de filme
-                ListaFilmePage listaFilmePage = new ListaFilmePage(new StocareFilme()); // poți să îți creezi un FilmRepository personalizat aici
+                ListaFilmePage listaFilmePage = new ListaFilmePage(new StocareFilme());
                 listaFilmePage.setVisible(true);
             }
         });

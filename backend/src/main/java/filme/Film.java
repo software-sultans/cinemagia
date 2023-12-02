@@ -14,6 +14,7 @@ public class Film implements InterfataFilm {
     String salaRulare;
     byte[] poster;
 
+
     public Film(String nume, int durata, String descriere, LocalDate dataLansare, float pret, String regizor, String gen, String parentalGuidance, String salaRulare, byte[] poster) {
         this.nume = nume;
         this.durata = durata;
