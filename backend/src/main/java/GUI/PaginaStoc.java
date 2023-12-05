@@ -89,7 +89,7 @@ public class PaginaStoc {
         try (Connection connection = DatabaseConnection.getConnection();
              Statement statement = connection.createStatement()) {
 
-            String query = "SELECT p.tip_produs, p.nume, sp.pret, p.continut, sp.cantitate " +
+            String query = "SELECT p.tip_produse, p.nume, sp.pret, p.continut, sp.cantitate " +
                     "FROM produse p INNER JOIN stoc_produse sp ON p.id = sp.id_produs";
             ResultSet resultSet = statement.executeQuery(query);
 
@@ -99,7 +99,7 @@ public class PaginaStoc {
                         null, // Momentan nu există un câmp producător în interogare
                         resultSet.getFloat("pret"),
                         resultSet.getString("continut"),
-                        resultSet.getString("tip_produs"),
+                        resultSet.getString("tip_produse"),
                         null, // Momentan nu există un câmp pentru data de expirare în interogare
                         resultSet.getInt("cantitate")
                 );

@@ -12,7 +12,7 @@ public class BitToImg {
         try {
             if (imageData != null) {
                 BufferedImage image = ImageIO.read(new ByteArrayInputStream(imageData));
-                return new ImageIcon(image.getScaledInstance(500, 500, Image.SCALE_SMOOTH));
+                return new ImageIcon(image.getScaledInstance(200, 300, Image.SCALE_SMOOTH));
             }
         } catch (IOException e) {
             e.printStackTrace();
