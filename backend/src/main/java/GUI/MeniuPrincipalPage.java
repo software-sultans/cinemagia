@@ -48,6 +48,13 @@ class MeniuPrincipalPage extends JFrame {
                 paginaStoc.afiseazaPaginaStoc();
             }
         });
+        creareBonButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                PaginaBon paginaBon=new PaginaBon();
+                paginaBon.afiseazaPaginaBon();
+            }
+        });
 
 
 
