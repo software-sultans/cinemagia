@@ -83,7 +83,7 @@ public class PaginaStoc {
     }
 
     // Metodă pentru a obține lista de produse din baza de date
-    private List<Produs> getListaProduseFromDatabase() {
+    public static List<Produs> getListaProduseFromDatabase() {
         List<Produs> produse = new ArrayList<>();
 
         try (Connection connection = DatabaseConnection.getConnection();
