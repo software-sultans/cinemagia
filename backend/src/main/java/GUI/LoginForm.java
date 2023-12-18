@@ -71,6 +71,7 @@ public class LoginForm extends JFrame {
             }
         });
 
+
         // Setează dimensiunile ferestrei
         setSize(300, 200);
 

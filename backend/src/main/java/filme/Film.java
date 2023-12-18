@@ -2,7 +2,7 @@ package filme;
 
 import java.time.LocalDate;
 
-public class Film implements InterfataFilm {
+public class Film {
     String nume;
     int durata;
     String descriere;
