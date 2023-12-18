@@ -9,9 +9,12 @@ import java.awt.event.ActionListener;
 import java.sql.*;
 
 
+
 public class LoginForm extends JFrame {
     private JTextField usernameField;
     private JPasswordField passwordField;
+
+    public static int idAngajat=-1;
 
     public LoginForm() {
         // Setează titlul ferestrei
@@ -51,6 +54,7 @@ public class LoginForm extends JFrame {
 
                 // Adaugă logica de verificare a numelui de utilizator și parolei în baza de date
                 if (authenticate(username, password)) {
+
                     // Autentificare reușită
                     dispose(); // închide fereastra de logare
                     MeniuPrincipalPage meniuPrincipalPage = new MeniuPrincipalPage();
@@ -84,8 +88,16 @@ public class LoginForm extends JFrame {
                 preparedStatement.setString(1, username);
                 preparedStatement.setString(2, password);
 
+
+
                 try (ResultSet resultSet = preparedStatement.executeQuery()) {
-                    return resultSet.next(); // Returnează true dacă există un rând în rezultat (autentificare reușită)
+                    resultSet.next();
+                    idAngajat=resultSet.getInt(1);
+                    if(idAngajat!=-1)
+                        return true;
+                    else
+                        return false;
+                    //return resultSet.next(); // Returnează true dacă există un rând în rezultat (autentificare reușită)
                 }
             }
         } catch (SQLException e) {
