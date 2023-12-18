@@ -55,6 +55,14 @@ class MeniuPrincipalPage extends JFrame {
                 paginaBon.afiseazaPaginaBon();
             }
         });
+        logoutButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                dispose();
+                LoginForm loginForm = new LoginForm();
+                loginForm.setVisible(true);
+            }
+        });
 
 
 
