@@ -5,18 +5,12 @@ import database.DatabaseConnection;
 import filme.Film;
 import filme.SeatSelectionWindow;
 import filme.StocareFilme;
-import bon.LogicaBon;
-import produse.ModificareStocPage;
 import produse.Produs;
 
 import javax.swing.*;
-import javax.swing.table.DefaultTableModel;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.geom.Line2D;
-import java.sql.*;
-import java.util.ArrayList;
 import java.util.List;
 import javax.swing.JOptionPane;
 import java.sql.Connection;

@@ -1,8 +1,8 @@
 package GUI;
 
-import GUI.MeniuPrincipalPage;
 import database.DatabaseConnection;
-import produse.ModificareStocPage;
+import produse.PaginaActualizareStoc;
+import produse.PaginaAdaugareProdus;
 import produse.Produs;
 
 import javax.swing.*;
@@ -28,7 +28,7 @@ public class PaginaStoc {
         frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         frame.setResizable(false);
 
-        // Obține datele din baza de date și stochează-le în lista de produse
+        // Obține produsele si stochează-le în lista de produse
         listaProduse = getListaProduseFromDatabase();
 
         // Crează un model de tabel pentru a afișa datele produselor într-un JTable
@@ -48,38 +48,34 @@ public class PaginaStoc {
         JScrollPane scrollPane = new JScrollPane(table);
         frame.add(scrollPane);
 
-
-        //butonul "Inapoi" spre meniul principal
-        JButton inapoiButton = new JButton("Înapoi");
-        inapoiButton.addActionListener(new ActionListener() {
+        // Crearea și configurarea butoanelor "Adaugă" și "Actualizează"
+        JButton adaugaButton = new JButton("Adaugă");
+        adaugaButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                frame.dispose(); // Închide fereastra PaginaStoc
-                MeniuPrincipalPage meniuPrincipalPage = new MeniuPrincipalPage(); // Creează un nou meniu principal
-                meniuPrincipalPage.setVisible(true); // Afișează meniul principal
-            }
-        });
-        // Setează layout-ul pentru a controla dimensiunea și poziția butonului
-        JPanel buttonPanel = new JPanel(new FlowLayout(FlowLayout.LEFT));
-        buttonPanel.add(inapoiButton);
-        // Adaugă butonul în zona nordica ferestrei
-        frame.add(buttonPanel, BorderLayout.NORTH);
-
-
-        // Butonul "Modificare Stoc"
-        JButton modificareStocButton = new JButton("Modificare Stoc");
-        modificareStocButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                // Deschide fereastra pentru modificarea stocului
-                ModificareStocPage modificareStocPage = new ModificareStocPage();
-                modificareStocPage.afiseazaInterfataModificareStoc();
+                PaginaAdaugareProdus paginaAdaugareProdus = new PaginaAdaugareProdus();
+                paginaAdaugareProdus.afiseazaPaginaAdaugareProdus();
             }
         });
 
-        // Adaugă butonul "Modificare Stoc" în zona de sus a ferestrei
-        buttonPanel.add(modificareStocButton);
-        frame.add(buttonPanel, BorderLayout.NORTH);
+        JButton actualizeazaButton = new JButton("Actualizează");
+        actualizeazaButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                PaginaActualizareStoc paginaActualizareStoc = new PaginaActualizareStoc();
+                paginaActualizareStoc.afiseazaPaginaActualizareStoc();
+            }
+        });
+
+        // Crearea unui nou JPanel pentru butoanele de adăugare și actualizare
+        JPanel buttonsPanel = new JPanel();
+        buttonsPanel.setLayout(new FlowLayout()); // Setarea layout-ului pentru a alinia butoanele pe orizontală
+        buttonsPanel.add(adaugaButton);
+        buttonsPanel.add(actualizeazaButton);
+        buttonsPanel.setBackground(Color.BLACK); // Setează culoarea de fundal a grilei la negru
+
+        frame.add(buttonsPanel, BorderLayout.NORTH);
+
     }
 
     // Metodă pentru a obține lista de produse din baza de date

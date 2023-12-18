@@ -2,6 +2,8 @@ package GUI;
 import filme.StocareFilme;
 
 import javax.swing.*;
+import javax.swing.border.LineBorder;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 class MeniuPrincipalPage extends JFrame {
@@ -10,26 +12,40 @@ class MeniuPrincipalPage extends JFrame {
         // Setează titlul ferestrei
         setTitle("Meniu Principal");
 
+        // Setează culoarea de fundal
+        getContentPane().setBackground(Color.decode("#FFA500"));
+
         // Crează componente
         JButton stocButton = new JButton("Stoc");
         JButton creareBonButton = new JButton("Creare Bon");
         JButton filmeButton = new JButton("Filme");
         JButton logoutButton = new JButton("Logout");
 
-        // Setează managerul de layout la null pentru poziționare absolută
-        setLayout(null);
+        // Crează un container pentru butoane și setează managerul de layout
+        JPanel buttonPanel = new JPanel(new GridBagLayout());
+        buttonPanel.setOpaque(false); // Face container-ul invizibil pentru a lăsa culoarea fundalului să se vadă
 
-        // Poziționează componente pe fereastră
-        stocButton.setBounds(10, 20, 150, 30);
-        creareBonButton.setBounds(10, 60, 150, 30);
-        filmeButton.setBounds(10, 100, 150, 30);
-        logoutButton.setBounds(10, 140, 150, 30);
+        // Adaugă butoanele la container
+        GridBagConstraints gbc = new GridBagConstraints();
+        gbc.gridwidth = GridBagConstraints.REMAINDER;
+        gbc.fill = GridBagConstraints.HORIZONTAL;
+        gbc.insets = new Insets(5, 5, 5, 5);
 
-        // Adaugă componente la fereastră
-        add(stocButton);
-        add(creareBonButton);
-        add(filmeButton);
-        add(logoutButton);
+        buttonPanel.add(stocButton, gbc);
+        buttonPanel.add(creareBonButton, gbc);
+        buttonPanel.add(filmeButton, gbc);
+        buttonPanel.add(logoutButton, gbc);
+
+        // Adaugă container-ul cu butoane în cadrul ferestrei
+        getContentPane().add(buttonPanel, BorderLayout.CENTER);
+
+        // Adaugă border-ul negru în jurul ferestrei
+        LineBorder blackBorder = new LineBorder(Color.decode("#000000"), 3);
+        ((JPanel)getContentPane()).setBorder(blackBorder);
+
+        // Centrare fereastră pe ecran
+        pack();
+        setLocationRelativeTo(null);
 
         filmeButton.addActionListener(new ActionListener() {
             @Override
@@ -63,7 +79,6 @@ class MeniuPrincipalPage extends JFrame {
                 loginForm.setVisible(true);
             }
         });
-
 
 
         // Setează dimensiunile fixe ale ferestrei
