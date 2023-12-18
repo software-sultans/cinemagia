@@ -72,9 +72,9 @@ public class PaginaBon extends JFrame{
         comboBoxMeniuri.setModel(new DefaultComboBoxModel<>(arrayNumeMeniuri));
 
 
+        // Obține lista de filme din baza de date
         this.filmRepository = filmRepository;
 
-        // Obține lista de filme din baza de date
 
 
         // Configurări specifice paginii de bon
@@ -113,7 +113,6 @@ public class PaginaBon extends JFrame{
         textFieldCupon.setPreferredSize(new Dimension(50,25));
 
 
-
         JLabel labelCantitate=new JLabel("Cantitate");
         labelCantitate.setFont(new Font("Arial",Font.PLAIN,24));
         JLabel totalLabelText=new JLabel("Total");
@@ -124,7 +123,7 @@ public class PaginaBon extends JFrame{
         JScrollPane scrollPaneProdusePeMeniu=new JScrollPane(produsePeMeniu);
 
 
-        panelButoane.setBackground(Color.BLUE);
+        panelButoane.setBackground(Color.ORANGE);
         panelButoane.setLayout(new GridLayout(0,2));
         panelButoane.setMaximumSize(new Dimension(700,600));
         panelButoane.setMinimumSize(new Dimension(700,600));
@@ -168,15 +167,9 @@ public class PaginaBon extends JFrame{
         panelMeniu.add(adaugaMeniuPeBon);
 
 
-
         panelCupon.setLayout(new FlowLayout());
         panelCupon.add(textFieldCupon);
         panelCupon.add(aplicaCupon);
-
-
-
-
-
 
 
         panelMeniuSiCupon.add(panelMeniu);
@@ -190,132 +183,6 @@ public class PaginaBon extends JFrame{
 
 
 
-
-        Label totalLabel=new Label(String.valueOf(pretTotal));
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-//        JPanel panelButoane=new JPanel();
-//        JPanel panelBon=new JPanel();
-//        JPanel panelMeniu=new JPanel();
-//
-//        panelButoane.setLayout(null);
-//        panelButoane.setBounds(0,0,1100,600);
-//        panelBon.setLayout(new BoxLayout(panelBon,BoxLayout.Y_AXIS));
-//      //  panelBon.setBounds(1100,0,300,600);
-//
-//        JLabel labelTest1=new JLabel("Produs1");
-//        JLabel labelTest2=new JLabel("Produs2");
-//        JLabel labelTest3=new JLabel("Produs3");
-//        JLabel labelTest4=new JLabel("Produs4");
-//        JLabel labelTest5=new JLabel("Produs5");
-//        JLabel labelTest6=new JLabel("Produs6");
-////        labelTest2.setBounds(1100,100,200,50);
-////        labelTest2.setBounds(1100,300,200,50);
-////        labelTest3.setBounds(1100,500,200,50);
-////        labelTest4.setBounds(1100,700,200,50);
-////        labelTest5.setBounds(1100,900,200,50);
-////        labelTest6.setBounds(1100,1100,200,50);
-//
-//        panelBon.add(labelTest1);
-//        panelBon.add(labelTest2);
-//        panelBon.add(labelTest3);
-//        panelBon.add(labelTest4);
-//        panelBon.add(labelTest5);
-//        panelBon.add(labelTest6);
-//        panelBon.add(Box.createVerticalGlue());
-//
-//
-//        // Make the panel scrollable
-//        JScrollPane paneBon = new JScrollPane(panelBon);
-//       // paneBon.setBounds(1100,0,300,600);
-//
-//        paneBon.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
-//        paneBon.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_AS_NEEDED);
-//        paneBon.setViewportView(panelBon);
-////        paneBon.add(labelTest1);
-////        paneBon.add(labelTest2);
-////        paneBon.add(labelTest3);
-////        paneBon.add(labelTest4);
-////        paneBon.add(labelTest5);
-////        paneBon.add(labelTest6);
-//        add(panelButoane);
-//        add(paneBon);
-//        //add(panelBon);
-//
-//
-//
-//
-//        bauturiButton.setBounds(10, 10, 100, 25);
-//        bauturiButton.setLocation(10,10);
-//        bauturiButton.setSize(100,25);
-//        cipsuriButton.setBounds(110,10,100,25);
-//        dulciuriButton.setBounds(210,10,100,25);
-//        extraButton.setBounds(310,10,100,25);
-//        filmeButton.setBounds(410,10,100,25);
-//        adaugaButton.setBounds(10,300,100,25);
-//        adaugaBiletFilmButton.setBounds(10,300,100,25);
-//        printButton.setBounds(10,400,100,25);
-//        totalLabel.setBounds(1000,500,75,25);
-//        comboBox.setBounds(10,50,100,25);
-//        textField.setBounds(210,50,100,25);
-//
-//
-//        // Adaugare butoane
-//
-//        panelButoane.add(bauturiButton);
-//        panelButoane.add(cipsuriButton);
-//        panelButoane.add(dulciuriButton);
-//        panelButoane.add(extraButton);
-//        panelButoane.add(filmeButton);
-//        panelButoane.add(adaugaButton);
-//        panelButoane.add(printButton);
-//        panelButoane.add(comboBox);
-//        panelButoane.add(textField);
-//        panelButoane.add(totalLabel);
-
-
-
-//
-//        panelButoane.setBackground(Color.RED);
-//        panelBon.setBackground(Color.ORANGE);
-
-
-
-//        JLabel labelTest1=new JLabel("Produs1");
-//        JLabel labelTest2=new JLabel("Produs2");
-//        JLabel labelTest3=new JLabel("Produs3");
-//        JLabel labelTest4=new JLabel("Produs4");
-//        JLabel labelTest5=new JLabel("Produs5");
-//        JLabel labelTest6=new JLabel("Produs6");
-//        labelTest2.setBounds(1100,10,200,50);
-//        labelTest2.setBounds(1100,30,200,50);
-//        labelTest3.setBounds(1100,50,200,50);
-//        labelTest4.setBounds(1100,70,200,50);
-//        labelTest5.setBounds(1100,90,200,50);
-//        labelTest6.setBounds(1100,110,200,50);
-//
-//        panelBon.add(labelTest1);
-//        panelBon.add(labelTest2);
-//        panelBon.add(labelTest3);
-//        panelBon.add(labelTest4);
-//        panelBon.add(labelTest5);
-//        panelBon.add(labelTest6);
-
-
-
-
         // Action listeners butoane
 
 
@@ -323,11 +190,6 @@ public class PaginaBon extends JFrame{
             @Override
             public void actionPerformed(ActionEvent e) {
                 lastButtonPressed="bauturi";
-             //   remove(adaugaBiletFilmButton);
-              //  adaugaButton.setBounds(10,300,100,25);
-
-               // panelButoane.add(adaugaButton);
-//                panelButoane.repaint();
 
                 LogicaBon.putProduseInCombobox(arrayProduse,arrayCantitateProdus,arrayPretProdus,listProdus,"Bauturi",comboBox);
 
@@ -338,8 +200,6 @@ public class PaginaBon extends JFrame{
             @Override
             public void actionPerformed(ActionEvent e) {
                 lastButtonPressed="cipsuri";
-               // remove(adaugaBiletFilmButton);
-               // panelButoane.add(adaugaButton);
                 repaint();
 
                 LogicaBon.putProduseInCombobox(arrayProduse,arrayCantitateProdus,arrayPretProdus,listProdus,"Cipsuri",comboBox);
@@ -459,9 +319,6 @@ public class PaginaBon extends JFrame{
             public void actionPerformed(ActionEvent e) {
                 if (arrayCantitateProdus[comboBox.getSelectedIndex()] >= Integer.parseInt(textFieldCantitate.getText()) && Integer.parseInt(textFieldCantitate.getText())>0) {
 
-                 //   float pretProduse=(Integer.parseInt(textFieldCantitate.getText()) * (arrayPretProdus[comboBox.getSelectedIndex()] * 10) / 10);
-                  //  pretTotal = pretTotal+pretProduse;
-                  //  addToBon(textFieldCantitate.getText().concat("x").concat(comboBox.getSelectedItem().toString()),pretProduse,panelBon);
                     produseDeModificat[indexDeModificat] = comboBox.getSelectedItem().toString();
                     stocDeModificat[indexDeModificat] = Integer.parseInt(textFieldCantitate.getText());
                     indexDeModificat++;
