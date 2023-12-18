@@ -51,7 +51,7 @@ class MeniuPrincipalPage extends JFrame {
         creareBonButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                PaginaBon paginaBon=new PaginaBon();
+                PaginaBon paginaBon=new PaginaBon(new StocareFilme());
                 paginaBon.afiseazaPaginaBon();
             }
         });
