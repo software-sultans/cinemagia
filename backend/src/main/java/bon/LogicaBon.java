@@ -8,6 +8,8 @@ import javax.swing.*;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.Statement;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -66,10 +68,13 @@ public class LogicaBon {
     }
     public static void insertVanzare(float pretVanzare)
     {
+        LocalDate data = LocalDate.now();
+        String formattedDate = data.format(DateTimeFormatter.ofPattern("yyyy-MM-dd"));
+        //fgm SQL cu trunchierea ta
         try (Connection connection = DatabaseConnection.getConnection();
              Statement statement = connection.createStatement()) {
 
-            String query = "INSERT INTO  vanzari (id_angajat,pret) VALUE ("+idAngajat+","+pretVanzare +")";
+            String query = "INSERT INTO vanzari (id_angajat, pret, data_bon) VALUES (" + idAngajat + "," + pretVanzare + ",'" + formattedDate + "')";
             statement.executeUpdate(query);
 
         } catch (Exception e) {

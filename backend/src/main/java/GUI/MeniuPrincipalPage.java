@@ -20,6 +20,7 @@ class MeniuPrincipalPage extends JFrame {
         JButton creareBonButton = new JButton("Creare Bon");
         JButton filmeButton = new JButton("Filme");
         JButton logoutButton = new JButton("Logout");
+        JButton vanzariButton = new JButton("Extragere Vanzari");
 
         // Crează un container pentru butoane și setează managerul de layout
         JPanel buttonPanel = new JPanel(new GridBagLayout());
@@ -35,6 +36,7 @@ class MeniuPrincipalPage extends JFrame {
         buttonPanel.add(creareBonButton, gbc);
         buttonPanel.add(filmeButton, gbc);
         buttonPanel.add(logoutButton, gbc);
+        buttonPanel.add(vanzariButton, gbc);
 
         // Adaugă container-ul cu butoane în cadrul ferestrei
         getContentPane().add(buttonPanel, BorderLayout.CENTER);
@@ -77,6 +79,13 @@ class MeniuPrincipalPage extends JFrame {
                 dispose();
                 LoginForm loginForm = new LoginForm();
                 loginForm.setVisible(true);
+            }
+        });
+        vanzariButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                PaginaVanzari paginaVanzari = new PaginaVanzari();
+                paginaVanzari.setVisible(true);
             }
         });
 
