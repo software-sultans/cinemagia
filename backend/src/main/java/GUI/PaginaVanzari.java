@@ -43,7 +43,7 @@ public class PaginaVanzari extends JFrame {
         String[] months = {"01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12"};
 
         String[] days = new String[32];
-        for (int i = 0; i <= 31; i++) {
+        for (int i = 0; i < 31; i++) {
             days[i] = String.valueOf(i+1);//daca incep de la 0 se vede goala prima linie
         }
 
