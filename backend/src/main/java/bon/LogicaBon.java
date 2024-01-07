@@ -16,7 +16,6 @@ import java.util.List;
 import static GUI.LoginForm.idAngajat;
 
 public class LogicaBon {
-
     public static void putProduseInCombobox(String[] arrayProduse,int[] arrayCantitateProdus, float[] arrayPretProdus, List<Produs> listProdus, String cuvant,JComboBox comboBox)
     {
 

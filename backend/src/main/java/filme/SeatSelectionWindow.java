@@ -37,7 +37,6 @@ public class SeatSelectionWindow extends JFrame {
                 JToggleButton seatButton = new JToggleButton();
                 seatButton.setSelected(seatMatrix[i][j]); // Set initial selection state
                 add(seatButton);
-
                 // Set action listener after adding the button to the layout
                 seatButton.addActionListener(new SeatButtonListener(i, j, seatButton));
                 updateSeatColor(seatButton, i, j); // Set initial background color
@@ -65,6 +64,7 @@ public class SeatSelectionWindow extends JFrame {
         public void actionPerformed(ActionEvent e) {
             // Toggle the seat status in the matrix
             seatMatrix[row][col] = !seatMatrix[row][col];
+            System.out.println("rand " + row + "coloana " + col);
             saveReservationData();
             updateSeatColor(seatButton, row, col);
         }

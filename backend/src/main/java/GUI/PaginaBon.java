@@ -300,7 +300,11 @@ public class PaginaBon extends JFrame{
                 insertVanzare(pretTotal+valoareCupoane);
                 indexDeModificat=0;
                 indexDeModificatExtra=0;
+                 pretTotal=0;
                  panelBon.removeAll();
+                 totalLabelPret.setText(String.valueOf(pretTotal));
+                panelBon.add(totalLabelText);
+                panelBon.add(totalLabelPret);
                  revalidate();
                  repaint();
 

@@ -48,7 +48,7 @@ public class PaginaActualizareStoc {
                     String dataExpirare = dataExpirareField.getText();
 
                     // Actualizează stoc_produse
-                    String updateStocQuery = "UPDATE stoc_produse sp " +
+                    String updateStocQuery = "UPDATE stoc_produs sp " +
                             "INNER JOIN produse p ON sp.id_produs = p.id " +
                             "SET sp.pret = " + pret + ", sp.cantitate = " + cantitate + ", sp.data_expirare = '" + dataExpirare + "' " +
                             "WHERE p.nume = '" + numeProdus + "'";
