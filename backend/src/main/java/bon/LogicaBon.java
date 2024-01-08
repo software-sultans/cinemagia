@@ -69,7 +69,7 @@ public class LogicaBon {
     {
         LocalDate data = LocalDate.now();
         String formattedDate = data.format(DateTimeFormatter.ofPattern("yyyy-MM-dd"));
-        //fgm SQL cu trunchierea ta
+        //trunchiere pt SQL
         try (Connection connection = DatabaseConnection.getConnection();
              Statement statement = connection.createStatement()) {
 

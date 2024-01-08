@@ -64,7 +64,7 @@ public class SeatSelectionWindow extends JFrame {
         public void actionPerformed(ActionEvent e) {
             // Toggle the seat status in the matrix
             seatMatrix[row][col] = !seatMatrix[row][col];
-            System.out.println("rand " + row + "coloana " + col);
+           // System.out.println("rand " + row + "coloana " + col);
             saveReservationData();
             updateSeatColor(seatButton, row, col);
         }
